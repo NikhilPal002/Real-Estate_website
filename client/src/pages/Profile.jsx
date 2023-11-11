@@ -2,7 +2,10 @@ import { useSelector } from 'react-redux';
 import { useRef, useState, useEffect } from 'react';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { app } from '../firebase';
-import { updateUserStart, updateUserFailure, updateUserSuccess } from '../redux/user/userSlice';
+import {
+  updateUserStart, updateUserFailure,
+  updateUserSuccess, deleteUserFailure, 
+  deleteUserStart, deleteUserSuccess} from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
 
 
@@ -61,7 +64,7 @@ export default function Profile() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-      if(data.success === false) {
+      if (data.success === false) {
         dispatch(updateUserFailure(data.message));
         return;
       }
@@ -69,6 +72,23 @@ export default function Profile() {
       setUpdateSuccess(true);
     } catch (error) {
       dispatch(updateUserFailure(error.message));
+    }
+  }
+
+  const handleDeleteUser = async () => {
+    try {
+      dispatch(deleteUserStart());
+      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if (data.success === false ) {
+        dispatch(deleteUserFailure(data.message));
+        return;
+      }
+      dispatch(deleteUserSuccess(data));
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
     }
   }
 
@@ -94,22 +114,22 @@ export default function Profile() {
         </p>
 
         <input type='text' defaultValue={currentUser.username} placeholder='username' className='border rounded-lg p-3 ' id='username'
-        onChange={handleChange}
+          onChange={handleChange}
         />
 
-        <input type='email' defaultValue={currentUser.email} placeholder='email' className='border rounded-lg p-3 ' id='email' 
+        <input type='email' defaultValue={currentUser.email} placeholder='email' className='border rounded-lg p-3 ' id='email'
           onChange={handleChange}
         />
 
         <input type='password' placeholder='password' className='border rounded-lg p-3 ' id='password'
-        onChange={handleChange}
-         />
+          onChange={handleChange}
+        />
 
-        <button disabled ={loading} className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-90 disabled:opacity-75'>{loading ? 'Loading...' : 'Update'}</button>
+        <button disabled={loading} className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-90 disabled:opacity-75'>{loading ? 'Loading...' : 'Update'}</button>
       </form>
 
       <div className='flex justify-between mt-5'>
-        <span className='text-red-700 cursor-pointer'>Delete Account</span>
+        <span onClick={handleDeleteUser} className='text-red-700 cursor-pointer'>Delete Account</span>
         <span className='text-red-700 cursor-pointer'>Sign Out</span>
       </div>
 
