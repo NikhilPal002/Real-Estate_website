@@ -7,6 +7,7 @@ import {
   updateUserSuccess, deleteUserFailure, 
   deleteUserStart, deleteUserSuccess, signOutStart, signOutFailure, signOutSuccess} from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
+import {Link} from 'react-router-dom';
 
 
 export default function Profile() {
@@ -129,18 +130,18 @@ export default function Profile() {
         </p>
 
         <input type='text' defaultValue={currentUser.username} placeholder='username' className='border rounded-lg p-3 ' id='username'
-          onChange={handleChange}
-        />
+          onChange={handleChange}/>
 
         <input type='email' defaultValue={currentUser.email} placeholder='email' className='border rounded-lg p-3 ' id='email'
-          onChange={handleChange}
-        />
+          onChange={handleChange}/>
 
         <input type='password' placeholder='password' className='border rounded-lg p-3 ' id='password'
-          onChange={handleChange}
-        />
+          onChange={handleChange} />
 
         <button disabled={loading} className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-90 disabled:opacity-75'>{loading ? 'Loading...' : 'Update'}</button>
+
+      <Link className='bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-90' to={"/create-listing"}>Create Listing</Link>
+        
       </form>
 
       <div className='flex justify-between mt-5'>
