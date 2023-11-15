@@ -8,7 +8,6 @@ import 'swiper/css/bundle';
 import {
   FaBath, FaBed,
   FaChair,
-  FaMapMarkedAlt,
   FaMapMarkerAlt,
   FaParking,
   FaShare
@@ -23,14 +22,14 @@ export default function Listings() {
   const [copied, setCopied] = useState(false);
   const [contact, setContact] = useState(false)
   const params = useParams();
-  const {currentUser} = useSelector((state) => state.user);
+  const { currentUser } = useSelector((state) => state.user);
 
   useEffect(() => {
     const fetchListing = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`/api/listing/get/${params.listingId}`);
-        const data = await response.json();
+        const res = await fetch(`/api/listing/get/${params.listingId}`);
+        const data = await res.json();
         if (data.success === false) {
           setError(true);
           setLoading(false);
@@ -56,15 +55,14 @@ export default function Listings() {
         <>
 
           <Swiper navigation>
-            {listing.imageUrls.map((url) =>
+            {listing.imageUrls.map((url) => (
               <SwiperSlide key={url}>
                 <div className='h-[550px]'
                   style={{ background: `url(${url}) center no-repeat`, backgroundSize: 'cover' }}>
                 </div>
               </SwiperSlide>
-            )}
+            ))}
           </Swiper>
-
 
 
           <div className='fixed top-[13%] right-[3%] z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer'>
