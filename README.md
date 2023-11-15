@@ -1,6 +1,7 @@
 # Real-Estate_website
 Real Estate website using MERN stack and Tailwind CSS
 
+you can view the website live at https://real-estate-75b2.onrender.com/
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
