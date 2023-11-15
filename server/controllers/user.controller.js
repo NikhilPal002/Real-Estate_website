@@ -4,7 +4,9 @@ import { errorHandler } from '../utils/error.js';
 import Listing from '../models/listing.model.js';
 
 export const test = (req, res) => {
-  res.send('Hello World!');
+  res.json({
+    message: 'Api route is working!',
+  });
 };
 
 export const updateUser = async (req, res, next) => {

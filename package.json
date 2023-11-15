@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon server/index.js",
-    "start": "babel-node server/index.js",
+    "start": "node server/index.js",
     "build": "npm install && npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
@@ -20,9 +20,5 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.0",
     "nodemon": "^3.0.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.23.3",
-    "@babel/preset-env": "^7.23.3"
   }
 }
