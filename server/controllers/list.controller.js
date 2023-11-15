@@ -21,7 +21,7 @@ export const deleteListing = async (req, res, next) => {
     }
 
     if (req.user.id !== listing.userRef) {
-        return next(errorHandler(401, 'Not authorized'));
+        return next(errorHandler(401, 'Not authorized, please signIn again'));
     }
 
     try {
@@ -38,7 +38,7 @@ export const updateListing = async (req, res, next) => {
         return next(errorHandler(401, 'Listing not found'))
     }
     if (req.user.id !== listing.userRef) {
-        return next(errorHandler(401, 'Not authorized'));
+        return next(errorHandler(401, 'Not authorized , Please signIn again'));
     }
 
     try {
