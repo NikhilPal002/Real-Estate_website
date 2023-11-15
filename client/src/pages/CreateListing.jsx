@@ -45,7 +45,7 @@ export default function CreateListing() {
                 setUploading(false);
             }).catch((err) => {
                 console.log(err);
-                setImageUploadErrors('Image upload failed (2mb per image) ');
+                setImageUploadErrors('Image upload failed (Image size should be 4 mb). ');
                 setUploading(false);
             });
 
@@ -155,7 +155,7 @@ export default function CreateListing() {
             <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-4'>
                 {/* Left coloumn  */}
                 <div className='flex flex-col gap-4 flex-1'>
-                    <input type='text' placeholder='Name' className='border p-3 rounded-lg' id='name' maxLength='62' minLength='10' required
+                    <input type='text' placeholder='Name' className='border p-3 rounded-lg' id='name' maxLength='62' minLength='5' required
                         onChange={handleChange}
                         value={formData.name}
                     />

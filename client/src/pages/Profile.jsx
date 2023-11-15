@@ -190,7 +190,7 @@ export default function Profile() {
       <p className='text-red-700 mt-5'>{error ? error : ''}</p>
       <p className='text-green-700 mt-5'>{updateSuccess ? 'User updated successfully' : ''}</p>
       <button className=' text-green-700 w-full' onClick={handleShowListings}>Show Listings</button>
-      <p className='text-red-700 mt-5'> {showListingError ? 'Error showing listing' : ''} </p>
+      <p className='text-red-700 mt-5'> {showListingError ? 'Error showing listing, please signIn again' : ''} </p>
       {
         userListings && userListings.length > 0 &&
         <div className='flex flex-col gap-4'>
