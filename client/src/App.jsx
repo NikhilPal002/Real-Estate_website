@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import About from './pages/About';
 import Profile from './pages/Profile';
-import Signin from './pages/Signin';
-import Signout from './pages/SignUp';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 import Header from './components/Header';
 import CreateLsting from './pages/CreateListing';
 import PrivateRoute from './components/PrivateRoute';
@@ -12,14 +12,15 @@ import UpdateListing from './pages/UpdateListing';
 import Listing from './pages/Listing';
 import Search from './pages/Search';
 
+
 export default function App() {
   return (
     <BrowserRouter>
     <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/sign-in" element={<Signin />} />
-        <Route path="/sign-up" element={<Signout />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
         <Route path="/about" element={<About />} />
         <Route path='/listing/:listingId' element={<Listing />} />
         <Route path='/search' element={<Search />} />
