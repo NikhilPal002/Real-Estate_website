@@ -15,6 +15,7 @@ import Search from './pages/Search';
 
 export default function App() {
   return (
+    <div className='App'>
     <BrowserRouter>
     <Header />
       <Routes>
@@ -32,5 +33,6 @@ export default function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    </div>
   )
 }
