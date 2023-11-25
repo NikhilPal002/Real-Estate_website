@@ -239,7 +239,7 @@ export default function UpdateListing() {
                             <p>Baths</p>
                         </div>
                         <div className='flex items-center gap-2 '>
-                            <input type='number' id='regularPrice' min='500' max='100000' className='p-3 border border-gray-300 rounded-lg' required
+                            <input type='number' id='regularPrice' min='500' max='10000000' className='p-3 border border-gray-300 rounded-lg' required
                                 onChange={handleChange}
                                 value={formData.regularPrice} />
                             <div className='flex flex-col items-center'>
@@ -252,7 +252,7 @@ export default function UpdateListing() {
                         {
                             formData.offer && (
                                 <div className='flex items-center gap-2 '>
-                                    <input type='number' id='discountPrice' min='0' max='10000' className='p-3 border border-gray-300 rounded-lg' required
+                                    <input type='number' id='discountPrice' min='0' max='10000000' className='p-3 border border-gray-300 rounded-lg' required
                                         onChange={handleChange}
                                         value={formData.discountPrice} />
                                     <div className='flex flex-col items-center'>
