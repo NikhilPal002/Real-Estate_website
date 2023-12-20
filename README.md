@@ -1,6 +1,10 @@
 # Real-Estate_website
 Real Estate website using MERN stack and Tailwind CSS
 
+#to create vite+react use
+npm create vite@latest app_name
+
+
 you can view the website live at https://real-estate-75b2.onrender.com/
 # React + Vite
 
