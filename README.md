@@ -1,7 +1,7 @@
 # Real-Estate_website
 Real Estate website using MERN stack and Tailwind CSS
 
-#to create vite+react use
+# To create vite+react use
 npm create vite@latest app_name
 
 
